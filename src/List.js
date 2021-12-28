@@ -10,13 +10,13 @@ const List = () => {
   setData(e.target.value);
  }
 
- const add = (e) => { 
+ const addItem = (e) => { 
   e.preventDefault(); 
   setTodo([...todos,data]);
   setData("");
 }
  
- const rest = (i) => {
+ const deleteItem = (i) => {
   const deleteTodo= todos.filter((currentItem) => currentItem !== i );
   setTodo(deleteTodo);
 }
@@ -29,12 +29,12 @@ const List = () => {
    <form>
 
     <input type='text' placeholder='Add a gift to the list' onChange={handleData} value={data}  />
-    <button onClick={add}>+</button>
+    <button onClick={addItem}>+</button>
 
    </form>
 
    <ol>
-    {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>rest(todo)}> x </button> </li> )}
+    {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>deleteItem(todo)}> x </button> </li> )}
    </ol>
 
   </>
