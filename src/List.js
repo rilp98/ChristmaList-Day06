@@ -4,7 +4,7 @@ import React,{useState} from 'react';
 const List = () => {
 
  const [data,setData] = useState('');
- const [todo, setTodo] = useState (['PlayStation 5','DS']);
+ const [todos, setTodo] = useState (['PlayStation 5','DS']);
 
  const handleData = (e) => {
   setData(e.target.value);
@@ -12,12 +12,14 @@ const List = () => {
 
  const add = (e) => { 
   e.preventDefault(); 
-  setTodo([...todo,data]);
-  setData("")
+  setTodo([...todos,data]);
+  setData("");
 }
  
- const rest = () => {
- }
+ const rest = (i) => {
+  const deleteTodo= todos.filter((currentItem) => currentItem !== i );
+  setTodo(deleteTodo);
+}
 
  return(
   <>
@@ -32,7 +34,7 @@ const List = () => {
    </form>
 
    <ol>
-    {todo.map((item) =><li key={item}> {item}  <button onClick={rest(item)}> x </button> </li> )}
+    {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>rest(todo)}> x </button> </li> )}
    </ol>
 
   </>
