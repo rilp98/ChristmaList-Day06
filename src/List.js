@@ -23,31 +23,34 @@ const List = () => {
   setTodo(deleteTodo);
 }
 
-const deleteAll = () => {
-  const deleteT= todos.map([]);
-  setTodo(deleteT);
+const deleteAll = (e) => {
+  e.preventDefault();
+  setTodo([]);
 }
 
  return(
-  <>
+
    <div className="background">
 
     <main>
 
    <h1>Christma List</h1>
    
-   <div className='list'>
+    <div className='list'>
+
    <form>
 
     <input type='text' placeholder='Add a gift to the list' onChange={handleData} value={data}  />
     <button className='buttonlist' onClick={addItem}>+</button>
-    <button onClick={deleteAll}>delete all</button>
-
+    
    </form>
 
    <ol>
     {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>deleteItem(todo)}  className='buttonlist'> x </button> </li> )}
    </ol>
+
+   <button className='buttonDeleteAll' onClick={deleteAll}>Delete All</button>
+
 
     </div>
 
@@ -55,7 +58,6 @@ const deleteAll = () => {
   
    </div>
 
-  </>
  );
 }
 

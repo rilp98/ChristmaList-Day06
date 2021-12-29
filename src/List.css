@@ -27,14 +27,14 @@ main h1 {
 }
 
 .list {
-  margin-top: 10px;
+  margin: 30px 0 0 64px;
 }
 
 input {
   width: 250px;
   height: 32px;
   padding:0 10px;
-  margin: 20px 0 20px 40px;
+  margin: 0 0 20px 40px;
   border: none;
   outline: none;
 }
@@ -50,15 +50,25 @@ li{
   justify-content: space-between;
 }
 
-.buttonlist {
-  color:  #cd0f26ab;
-  background-color:#dfdfdbfc ;
+button {
+  color: #dfdfdbfc;
+  background-color: #101c27 ;
   border:none;
-  height: 32px;
-  width: 32px;
   cursor: pointer;
 }
 
-.buttonlist:hover {
-    background-color: #c2c2affc;
+button:hover {
+    background-color: #162736;
+}
+
+.buttonlist {
+  height: 32px;
+  width: 32px;
+}
+
+.buttonDeleteAll {
+  height: 32px;
+  width: 287px;
+  margin-left: 36px;
+  font-weight: bold;
 }
