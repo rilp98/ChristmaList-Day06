@@ -50,7 +50,7 @@ li{
   justify-content: space-between;
 }
 
-button {
+.buttonlist {
   color:  #cd0f26ab;
   background-color:#dfdfdbfc ;
   border:none;
@@ -59,6 +59,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.buttonlist:hover {
     background-color: #c2c2affc;
 }

@@ -23,6 +23,11 @@ const List = () => {
   setTodo(deleteTodo);
 }
 
+const deleteAll = () => {
+  const deleteT= todos.map([]);
+  setTodo(deleteT);
+}
+
  return(
   <>
    <div className="background">
@@ -35,12 +40,13 @@ const List = () => {
    <form>
 
     <input type='text' placeholder='Add a gift to the list' onChange={handleData} value={data}  />
-    <button onClick={addItem}>+</button>
+    <button className='buttonlist' onClick={addItem}>+</button>
+    <button onClick={deleteAll}>delete all</button>
 
    </form>
 
    <ol>
-    {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>deleteItem(todo)}> x </button> </li> )}
+    {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>deleteItem(todo)}  className='buttonlist'> x </button> </li> )}
    </ol>
 
     </div>
