@@ -12,9 +12,16 @@ const List = () => {
  }
 
  const addItem = (e) => { 
-  e.preventDefault(); 
-  setTodo([...todos,data]);
-  setData("");
+  
+  if (data.trim() !== ''){
+  
+    e.preventDefault(); 
+    setTodo([...todos,data]);
+    setData("");
+  } else {
+    e.preventDefault(); 
+    console.log("Blanco");
+  }
 }
  
  const deleteItem = (item) => {
@@ -46,7 +53,9 @@ const List = () => {
    </form>
 
    <ol>
+
     {todos.map((todo) =><li key={todo}> {todo}  <button onClick={()=>deleteItem(todo)}  className='buttonlist'> x </button> </li> )}
+
    </ol>
   
    { todos.length === 0 && <p className="emptyMessage" > Santa necesita regalos para entregar </p> }
