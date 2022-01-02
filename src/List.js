@@ -5,39 +5,49 @@ import './List.css'
 const List = () => {
 
  const [data,setData] = useState('');
- const [todos, setTodo] = useState (['PlayStation 5','DS']);
+ const [quantities ,setQuantities] = useState('');
+ const [todos, setTodo] = useState ([]);
 
  const handleData = (e) => {
   setData(e.target.value);
  }
 
+ const handleQuantities = (e) => {
+  setQuantities(e.target.value);
+ }
+
  const addItem = (e) => { 
+
+  e.preventDefault(); 
   
-  if (data.trim() !== ''){
-  
-    e.preventDefault(); 
-    setTodo([...todos,data]);
-    setData("");
-  } else {
-    e.preventDefault(); 
-    console.log("Blanco");
+  if (data.trim() !== '' && quantities.trim() !== '' && quantities>0){
+
+    const wholeList = data+' x'+quantities;
+
+    setTodo([...todos,wholeList]);
+    setData('');
+    setQuantities('');
+
   }
 }
  
  const deleteItem = (item) => {
 
   const deleteTodo= todos.filter((currentItem) => currentItem !== item );
+
   setTodo(deleteTodo);
 }
 
  const deleteAll = (e) => {
+
   e.preventDefault();
   setTodo([]);
+
 }
 
  return(
   <>
-   <div className="background">
+   <div className='background'>
 
     <main>
 
@@ -47,7 +57,10 @@ const List = () => {
 
    <form>
 
-    <input type='text' placeholder='Add a gift to the list' onChange={handleData} value={data}  />
+    <input className='form_input-gift' type='text' placeholder='Add a gift to the list' onChange={handleData} value={data}  />
+
+    <input className='form_input-quantities' type='number' placeholder='0' onChange={handleQuantities} value={quantities} />
+
     <button className='buttonlist' onClick={addItem}>+</button>
     
    </form>
@@ -58,7 +71,7 @@ const List = () => {
 
    </ol>
   
-   { todos.length === 0 && <p className="emptyMessage" > Santa necesita regalos para entregar </p> }
+   { todos.length === 0 && <p className='emptyMessage'>Santa necesita regalos para entregar </p> }
   
    <button className='buttonDeleteAll' onClick={deleteAll}>Delete All</button>
   
