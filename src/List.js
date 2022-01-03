@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 
 import './List.css'
 
@@ -8,7 +8,7 @@ const List = () => {
 
  const [quantities ,setQuantities] = useState('');
 
- const [todos, setTodo] = useState ( JSON.parse(window.localStorage.getItem('todos') ));
+ const [todos, setTodo] = useState (['PlayStation 5','DS']);
 
  const handleData = (e) => {
   setData(e.target.value);
@@ -47,13 +47,6 @@ const List = () => {
 
 }
 
- useEffect(() => {
-
-  localStorage.setItem('todos',JSON.stringify(todos));
-
-}, [todos]);
-
-
  return(
   <>
    <div className='background'>
@@ -80,7 +73,7 @@ const List = () => {
 
    </ol>
   
-   { todos.length === 0 && <p className='emptyMessage'>Empty list. Santa needs gifts.</p> }
+   { todos.length === 0 && <p className='emptyMessage'>Empty list. Santa needs gifts</p> }
   
    <button className='buttonDeleteAll' onClick={deleteAll}>Delete All</button>
   
