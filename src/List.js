@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import './List.css'
 
@@ -8,7 +8,7 @@ const List = () => {
 
  const [quantities ,setQuantities] = useState('');
 
- const [todos, setTodo] = useState (['PlayStation 5','DS']);
+ const [todos, setTodo] = useState ([]);
 
  const handleData = (e) => {
   setData(e.target.value);
