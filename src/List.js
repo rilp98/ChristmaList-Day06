@@ -1,12 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import './List.css'
 
 const List = () => {
 
  const [data,setData] = useState('');
+
  const [quantities ,setQuantities] = useState('');
- const [todos, setTodo] = useState ([]);
+
+ const [todos, setTodo] = useState ( JSON.parse(window.localStorage.getItem('todos') ));
 
  const handleData = (e) => {
   setData(e.target.value);
@@ -45,6 +47,13 @@ const List = () => {
 
 }
 
+ useEffect(() => {
+
+  localStorage.setItem('todos',JSON.stringify(todos));
+
+}, [todos]);
+
+
  return(
   <>
    <div className='background'>
@@ -71,7 +80,7 @@ const List = () => {
 
    </ol>
   
-   { todos.length === 0 && <p className='emptyMessage'>Santa necesita regalos para entregar </p> }
+   { todos.length === 0 && <p className='emptyMessage'>Empty list. Santa needs gifts.</p> }
   
    <button className='buttonDeleteAll' onClick={deleteAll}>Delete All</button>
   
