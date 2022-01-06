@@ -6,8 +6,12 @@ I am using React.js because I want to practice it and learn more about it.
 
 In this project I practice the UseState, UseEffect, LocalStorage and conditionals.
 
+## URL 
+
+https://christmalist.netlify.app
+
 ## License
 
 MIT License
 
-Copyright (c) [2022] [Paola Rossi]p
+Copyright (c) [2022] [Paola Rossi]

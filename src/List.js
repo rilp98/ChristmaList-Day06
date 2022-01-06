@@ -15,6 +15,9 @@ const List = () => {
  }
 
  const handleQuantities = (e) => {
+  if (e.target.value.length >=6){
+    e.target.value=0;
+  } 
   setQuantities(e.target.value);
  }
 
@@ -73,7 +76,7 @@ const List = () => {
 
    </ol>
   
-   { todos.length === 0 && <p className='emptyMessage'>Empty list. Santa needs gifts</p> }
+   { todos.length === 0 && <p className='emptyMessage'>Empty list. Santa needs gifts.</p> }
   
    <button className='buttonDeleteAll' onClick={deleteAll}>Delete All</button>
   
