@@ -4,7 +4,7 @@ This is a christmas challenge that consists of a To Do List of Christmas gifts. 
 
 I am using React.js because I want to practice it and learn more about it. 
 
-In this project I practice the UseState, UseEffect and conditionals.
+In this project I practice the UseState, JSX and conditionals.
 
 ## URL 
 
